@@ -1,26 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from './core/data.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: 'my-app',
+  template: '<home>Loading...</home>',
 })
-export class AppComponent implements OnInit, OnDestroy {
-
-  stockQuote: number;
-  sub: Subscription;
-
-  constructor(private dataService: DataService) { }
-
-  ngOnInit() {
-    this.sub = this.dataService.getQuotes()
-        .subscribe(quote => {
-          this.stockQuote = quote;
-        });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-}
+export class AppComponent  {}
